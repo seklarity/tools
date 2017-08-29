@@ -18,15 +18,15 @@ More information at http://www.seklarity.com
 # Solution and Projects :
 -------------------------
 
--SeklarityAgent_Extractor is a safe version of mimikatz which is modified to be c library. Code is changed to not extract creds but mere report the presence of them. 
+-SeklarityAgent_Extractor is a safe version of mimikatz, which is modified to be c library. Code is reworked to not extract creds, but mere report the presence and state. 
 
--SeklarityC (Collector) is a c# executable that wraps the SeklarityAgent_Extractor dll. It uses Marshaling to call into extractor functions. 
- The data can then be formatted and upload as json to webservice for further analysis. 
- The SeklarityAgent_Extractor dll is embedded into the SeklarityC projecet using Costura package.
+-SeklarityC (Collector) is a c# executable that wraps SeklarityAgent_Extractor dll. It uses Marshaling to call into extractor functions. 
+ The data can then be formatted and uploaded as json to your webservice for further analysis. 
+ The SeklarityAgent_Extractor dll is embedded into SeklarityC project using Costura package.
 
--SeklarityDriver is same driver as mimikatz driver to be used in proptected process cases. The driver needs to be digitally signed in order to load safely in kernel mode.
+-SeklarityDriver is same driver as mimikatz driver, used in case of protected process. The driver needs to be digitally signed in order to load safely in kernel mode.
 
--Dll_tester is merely a test project in c to test and debug SeklarityAgent_Extractor dll as its hard to debug when dll is emebedded in SeklarityC.
+-Dll_tester is merely a test project in c to test and debug SeklarityAgent_Extractor dll, as it is hard to debug when dll is embedded in SeklarityC.
 
 
 #Pre-requisites:
