@@ -76,8 +76,10 @@ Visual Studio 2017
 #Execution notes:
 ------------------------
 
-Note - This is a 64-bit executable to run on 64 bit Windows Machines
+Note - This is a 64-bit executable to run on 64 bit Windows Machines.
+
 Note - Edit the config.json file to upload the output to your backend.  Out of the box Elasticsearch should just work.  Username and password can be used and configured for basic authN (to nginx for example).
+
 Note - This will run out of the box if Protected processes are not configured for Windows.  If your machine has Protected processes enabled, you will need to build the driver project (included in this repo) with the WinDDK build tools, as described in the mimikatz repo ReadMe file (https://github.com/gentilkiwi/mimikatz/blob/master/README.md).  And you will need to sign the driver.
 
 
