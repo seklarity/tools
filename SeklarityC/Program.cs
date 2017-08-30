@@ -226,27 +226,41 @@ namespace SeklarityC
                 
                 StringContent content = new StringContent(json,Encoding.UTF8, "application/x-www-form-urlencoded");
                 Console.WriteLine("Posting to " + siteURL);
-                HttpResponseMessage response = await client.PostAsync(siteURL, content);
-                var contents = await response.Content.ReadAsStringAsync();
-
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    Console.WriteLine("SUCCESS: Post success to " + siteURL);
-                    Console.WriteLine("JSON posted...");
-                    Console.WriteLine(json);
-                    Console.WriteLine("Response body...");
-                    Console.WriteLine(contents);
-                    LogWriter lwPostNo = new LogWriter("SUCCESS: Post success to " + siteURL + ".\n Response body: " + contents);
+                    HttpResponseMessage response = await client.PostAsync(siteURL, content);
+                    var contents = await response.Content.ReadAsStringAsync();
 
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("SUCCESS: Post success to " + siteURL);
+                        Console.WriteLine("JSON posted...");
+                        Console.WriteLine(json);
+                        Console.WriteLine("Response body...");
+                        Console.WriteLine(contents);
+                        LogWriter lwPostNo = new LogWriter("SUCCESS: Post success to " + siteURL + ".\n Response body: " + contents);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("FAILURE: Post to " + siteURL + " failed.\n Response: " + response.ReasonPhrase);
+                        Console.WriteLine("JSON posted...");
+                        Console.WriteLine(json);
+                        Console.WriteLine(contents);
+                        LogWriter lwPostNo = new LogWriter("FAILURE: Post to " + siteURL + " failed.\n Response body: " + contents);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.WriteLine("FAILURE: Post to " + siteURL + " failed.\n Response: "+ response.ReasonPhrase);
-                    Console.WriteLine("JSON posted...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Posting to " + siteURL + " failed.");
+                    Console.ResetColor();
+                    Console.WriteLine("Cred data which we tried to post below: ");
                     Console.WriteLine(json);
-                    Console.WriteLine(contents);
-                    LogWriter lwPostNo = new LogWriter("FAILURE: Post to " + siteURL + " failed.\n Response body: " + contents);
+                    Console.WriteLine("Exception:");
+                    Console.WriteLine(ex);
                 }
+                
             }
 
         }
