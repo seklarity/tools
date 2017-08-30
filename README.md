@@ -46,19 +46,31 @@ Fody Nuget package
 #Build instructions:
 -----------------
 Visual Studio 2015
+
 -Clone repo to local machine.
+
 -Open SeklarityC_Sln.sln.
+
 -In Solution explorer, highlight the solution and in the Properties windows at the bottom, make sure the Active Config is set to "debug/64"
+
 -In Visual Studio, click Build->Build Solution
 
 Visual Studio 2017
+
 -Clone repo to local machine.
+
 -Open SeklarityC_Sln.sln.
+
 -If Visual Studio Prompts you to Retarget Solution, click Cancel
+
 -In Solution explorer, highlight the solution and in the Properties windows at the bottom, make sure the Active Config is set to "debug/64"
+
 -If running a different version of Visual Studio from 2015, you will need to change the Platform and SDK versions in the Project Properties
+
 --For Visual Studio 2017, change platform to Visual Studio 2017 (v141) for both SeklarityAgent project Extractor and Dll_tester project
+
 --For Visual Studio 2017 change SDK to version - 10.0.14393.0 for both SeklarityAgent project Extractor and Dll_tester project
+
 -In Visual Studio, click Build->Build Solution
 
 #Execution notes:
