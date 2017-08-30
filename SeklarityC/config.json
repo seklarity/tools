@@ -1,6 +1,6 @@
 {
   "customer": "testcustomer",
-  "uploadUrl": "https://analysiscloud.yourdomain.com/{0}/",
+  "uploadUrl": "http://localhost/{0}/",
   "user": "testusername",
   "pwd": "testpassword2bchanged"
 }
