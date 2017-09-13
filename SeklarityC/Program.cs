@@ -216,7 +216,11 @@ namespace SeklarityC
         {
             using (var client = new HttpClient())
             {
-                if (username != null)
+                if (string.IsNullOrEmpty(username))
+                {
+                    Console.WriteLine("Username is blank; connecting without authentication.");
+                }
+                else
                 {
                     Console.WriteLine("Using Basic Authentication.");
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
@@ -224,10 +228,6 @@ namespace SeklarityC
                         Convert.ToBase64String(
                         System.Text.ASCIIEncoding.ASCII.GetBytes(
                         string.Format("{0}:{1}", username, pwd))));
-                }
-                else
-                {
-                    Console.WriteLine("Username is blank; connecting without authentication.");
                 }
                 client.DefaultRequestHeaders.Add("Accept", "application/json, text/javascript, */*; q=0.01");
                 client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
