@@ -20,10 +20,9 @@ More information at http://www.seklarity.com
 
 A built and signed version, including driver is located in the Release/1.1.0 folder.
 
+Info on how to config to upload to Elasticsearch is on our website - http://seklarity.com/info.html
+
 Note - This is a 64-bit executable to run on 64 bit Windows Machines.
-
-Note - Edit the config.json file to upload the output to your backend.  Out of the box Elasticsearch should just work.  Username and password can be used and configured for basic authN (to nginx for example).
-
 
 # Solution and Projects :
 -------------------------
